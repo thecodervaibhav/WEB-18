@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai | Signup</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #conatainer{
+            width: 30%;
+            height: auto;
+            margin: auto;
+            margin-top: 50px;
+            padding: 20px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        h2{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        #declaration{
+            font-size: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        p{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #button{
+           padding: 5px 70px 5px 70px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="conatainer">
+        <form>
+        <h2>Sing In</h2>
+        <p id="email"> Email</p>
+        <input type="email" placeholder="Enter email"/>
+        <p id="password">Password</p>
+        <input type="password" placeholder="Enter password">
+        <p id="declaration" >By signing in,I accept the Masai School Term of service and acknowledge the Privacy Policy</p>
+        <input id="button" type="submit">
+    </form>
+    </div>
+</body>
+</html>
+<script>
+
+    var form=document.querySelector("form");
+    var unserData=JSON.parse(localStorage.getItem("unserData"));
+
+    form.addEventListener("submit",function(event)
+    {
+        event.preventDefault();
+
+        var data={
+        email:form.email.value,
+        password:form.password.value,
+    }
+        if(unserData===null)
+        {
+            alert("Please Enter Credaicial");
+        }
+        else if(unserData.email==data.email && unserData.password==data.password)
+        {
+            alert("Sign in Successful");
+            localStorage.setItem("login",JSON.stringify(unserData))
+        }
+        else{
+            alert("User Does not exist")
+        }
+         
+    })
+</script>

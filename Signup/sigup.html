@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai | Signup</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        } 
+        #conatainer{
+            width: 40%;
+            height: auto;
+            margin: auto;
+            margin-top: 50px;
+            padding: 20px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        h2{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        #declaration{
+            font-size: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        p{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #button{
+           padding: 5px 70px 5px 70px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="conatainer">
+        <form>
+        <h2>Sing Up</h2>
+        <p >Full Name</p>
+        <input id="username" type="text" placeholder="Enter your full name">
+        <p> Email</p>
+        <input id="email" type="email" placeholder="Enter email"/>
+        <p>Password</p>
+        <input  id="password" type="password" placeholder="Enter password">
+        <p id="declaration" >By signing up,I accept the Masai School Term of service and acknowledge the Privacy Policy</p>
+        <input id="button" type="submit">
+    </form>
+    </div>
+</body>
+</html>
+
+<script>
+   var form= document.querySelector("form");
+   form.addEventListener("submit",function(event){
+    event.preventDefault();
+
+    var data={
+        username:form.name.value,
+        email:form.email.value,
+        password:form.password.value,
+    }
+    if(data== null)
+    {
+        alert("Please Enter detail")
+    }
+    else{
+        alert("Sign up Successfully")
+    localStorage.setItem("unserData",JSON.stringify(data));
+    window.location.href="login.html"
+
+    }
+    
+   })
+
+</script>
